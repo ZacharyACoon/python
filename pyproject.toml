@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 namespaces = true
 where = ["packages/"]
 include = [
-    "zacharyacoon.zlogging",
+    "zacharyacoon",
 ]
 
 [project]
