@@ -4,6 +4,7 @@ if TYPE_CHECKING:
 from .iso8601utc_time_formatter import ISO8601UTCTimeFormatter
 from .configure_loggers import configure_loggers
 from .log_file_handlers import generate_log_file_handlers
+from .stdout_stderr_handlers import generate_stdout_stderr_handlers
 
 
 date_format = "%Y%m%dT%H%M%S.%f%z"
