@@ -20,19 +20,21 @@ def generate_log_file_handlers(
     :param log_retention_days: The number of days to keep logs
     :returns handlers: An iterable of
     """
-    log_file_path = Path(log_file_path)
-    log_file_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if log_retention_days:
-        daily_log_file_handler = logging.handlers.TimedRotatingFileHandler(
-            filename=log_file_path,
-            when="midnight",
-            backupCount=log_retention_days,
-        )
-        daily_log_file_handler.formatter = formatter
-        yield daily_log_file_handler
+    if log_file_path:
+        log_file_path = Path(log_file_path)
+        log_file_path.parent.mkdir(parents=True, exist_ok=True)
 
-    else:
-        file_handler = logging.handlers.WatchedFileHandler(filename=log_file_path)
-        file_handler.formatter = formatter
-        yield file_handler
+        if log_retention_days:
+            daily_log_file_handler = logging.handlers.TimedRotatingFileHandler(
+                filename=log_file_path,
+                when="midnight",
+                backupCount=log_retention_days,
+            )
+            daily_log_file_handler.formatter = formatter
+            yield daily_log_file_handler
+
+        else:
+            file_handler = logging.handlers.WatchedFileHandler(filename=log_file_path)
+            file_handler.formatter = formatter
+            yield file_handler
