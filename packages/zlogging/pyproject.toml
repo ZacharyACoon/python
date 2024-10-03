@@ -11,4 +11,4 @@ include = [
 
 [project]
 name = "zacharyacoon.zlogging"
-version = "1.0.0"
+version = "1.0.1"
